@@ -24,14 +24,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 .container {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 95%;
     height: 90vh;
     padding: 20px;
+    align-items:flex-start;
 }
 .input,
 .output {
@@ -40,6 +41,7 @@ body {
     flex-direction: column; 
     justify-content: space-between;
     font-family: "ColfaxAI";
+    height: 100%;
 }
 .input {
     width: 40%;
@@ -58,7 +60,7 @@ body {
     align-items: center;
     gap: 10px;
     flex: 0.3;
-    width: 50px;
+    width: 35px;
 }
 textarea {
     width: 90%;
@@ -72,11 +74,11 @@ textarea {
 button {
     cursor: pointer;
     font-size: 1rem;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     background-color: #f8f8f8;
     transition: background-color 0.3s;
-    width: 100%;
+    width: 35px;
     font-family: "ColfaxAI";
 }
 button:hover {
@@ -107,4 +109,16 @@ output textarea {
 .copy-btn {
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 90%;
 }
+
+.input textarea {
+    flex-grow: 1; /* Add this line */
+    margin-bottom: 10px; /* Add this line */
+}
+
+.popup h1, .popup p {
+    margin: 0;
+    padding: 0;
+}
+
