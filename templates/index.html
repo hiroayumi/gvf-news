@@ -12,14 +12,16 @@
       <textarea id="input-text" placeholder="Paste your news article here" required></textarea>
     </div>
     <div class="buttons">
-      <button id="summarize">Submit</button>
+      <button id="summarize">Summarize</button>
       <button id="translate">Translate</button>
     </div>
     <div class="output">
         <h2>Summarized English:</h2>
         <textarea id="summary-output" readonly></textarea>
+        <button id="copy-summary" class="copy-btn">Copy Summary to Clipboard</button>
         <h2>Translated Chinese:</h2>
         <textarea id="translation-output" readonly></textarea>
+        <button id="copy-translation" class="copy-btn">Copy Translation to Clipboard</button>
     </div>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
