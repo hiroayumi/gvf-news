@@ -5,28 +5,22 @@
   <title>GVF News Generator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
-<script src="app.js"></script>
 
 <body>
-  <h3>GVF News Generator</h3>
   <div class="container">
-    <div class="input-section">
-    <textarea type="text" id="article-input" placeholder="Paste your news article here"/ required></textarea>
-    <div class="button-section">
-      <form onsubmit="event.preventDefault();">
-        <button id="submit-button">Submit</button>
-        <button id="translate-button">Translate</button>
-      </form>
+    <div class="input">
+      <textarea id="input-text" placeholder="Paste your news article here" required></textarea>
     </div>
-    <div class="output-section">
-      <div class="summary-section">
+    <div class="buttons">
+      <button id="submmarize">Submit</button>
+      <button id="translate">Translate</button>
+    </div>
+    <div class="output">
         <h2>Summarized English:</h2>
         <textarea id="summary-output" readonly></textarea>
-      </div>
-      <div class="translation-section">
         <h2>Translated Chinese:</h2>
         <textarea id="translation-output" readonly></textarea>
-      </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
