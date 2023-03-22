@@ -26,14 +26,6 @@ body {
     align-items: center;
     padding-top: 20px;
 }
-h3 {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: bold;
-    color: #202123;
-    margin: 16px 0 40px;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -41,26 +33,24 @@ h3 {
     height: 90vh;
     padding: 20px;
 }
-
 .input,
 .output {
     flex: 1;
     display: flex; 
     flex-direction: column; 
-    justify-content: space-between; 
+    justify-content: space-between;
+    font-family: "ColfaxAI";
 }
-
 .input {
     width: 40%;
 }
-
 .output {
     display: flex;
     flex-direction: column;
     width: 50%;
     justify-content: space-between;
+    font-family: "ColfaxAI";
 }
-
 .buttons {
     display: flex;
     flex-direction: column;
@@ -70,7 +60,6 @@ h3 {
     flex: 0.3;
     width: 50px;
 }
-
 textarea {
     width: 90%;
     height: 90%;
@@ -80,7 +69,6 @@ textarea {
     resize: none;
     overflow: auto;
 }
-
 button {
     cursor: pointer;
     font-size: 1rem;
@@ -89,16 +77,14 @@ button {
     background-color: #f8f8f8;
     transition: background-color 0.3s;
     width: 100%;
+    font-family: "ColfaxAI";
 }
-
 button:hover {
     background-color: #e0e0e0;
 }
-
 output textarea {
     height: 45%;
 }
-
 .overlay {
   position: fixed;
   top: 0;
@@ -111,7 +97,6 @@ output textarea {
   justify-content: center;
   align-items: center;
 }
-
 .popup {
   background-color: white;
   border-radius: 5px;
@@ -119,10 +104,7 @@ output textarea {
   text-align: center;
   z-index: 1001;
 }
-
 .copy-btn {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-
