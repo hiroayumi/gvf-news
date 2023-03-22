@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
   popup.style.top = "50%";
   popup.style.left = "50%";
   popup.style.transform = "translate(-50%, -50%)";
-  popup.style.width = "200px";
-  popup.style.height = "100px";
+  popup.style.width = "300px";
+  popup.style.height = "200px";
   document.body.appendChild(popup);
 
   const form = document.createElement("form");
