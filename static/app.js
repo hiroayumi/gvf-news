@@ -9,9 +9,15 @@ async function postData(url = '', data = {}) {
     return await response.json();
 }
 
+function setGeneratingMessage(elementId) {
+    document.getElementById(elementId).value = 'Generating...';
+}
+
 document.getElementById("summarize").addEventListener("click", async () => {
     const inputText = document.getElementById("input-text").value;
     if (!inputText) return;
+
+    setGeneratingMessage("summary-output");
 
     try {
         const result = await postData('/api/summarize', { text: inputText });
@@ -23,8 +29,10 @@ document.getElementById("summarize").addEventListener("click", async () => {
 });
 
 document.getElementById("translate").addEventListener("click", async () => {
-    const inputText = document.getElementById("summary-output").value; // Changed this line
+    const inputText = document.getElementById("summary-output").value;
     if (!inputText) return;
+
+    setGeneratingMessage("translation-output");
 
     try {
         const result = await postData('/api/translate', { text: inputText });
