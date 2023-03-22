@@ -13,6 +13,18 @@ function setGeneratingMessage(elementId) {
     document.getElementById(elementId).value = 'Generating...';
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const passcode = "gvf2023";
+    const userInput = prompt("Please enter the passcode:");
+
+    if (userInput !== passcode) {
+        alert("Incorrect passcode. You won't be able to use the functions.");
+        // Optionally, redirect the user to another page
+        window.location.href = "https://gvfnews.azurewebsites.net/";
+    }
+});
+
+
 document.getElementById("summarize").addEventListener("click", async () => {
     const inputText = document.getElementById("input-text").value;
     if (!inputText) return;
