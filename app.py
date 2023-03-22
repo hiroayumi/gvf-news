@@ -23,43 +23,32 @@ def index():
     return render_template("index.html", result=result)
 '''
 
-@app.route('/')
+def gpt3_request(prompt, max_tokens=500):
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=max_tokens,
+        temperature=0.5,
+    )
+    return response.choices[0].text.strip()
+
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-
-@app.route('/summarize', methods=['POST'])
+@app.route("/api/summarize", methods=["POST"])
 def summarize():
-    article_text = request.json['article']
-    summary = summarize_article(article_text)
+    text = request.json["text"]
+    summary = gpt3_request(f"Summarize the following news article:\n\n{text}\n")
     return jsonify(summary=summary)
 
-def summarize_article(article_text):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=generate_summary(article_text),
-        temperature=0.5
-    )
-    return response
-
-
-@app.route('/translate', methods=['POST'])
+@app.route("/api/translate", methods=["POST"])
 def translate():
-    # Implement your translate_text() function here
-    text = request.json['text']
-    translated_text = translate_text(summary_en)
-    return jsonify(translated_text=translated_text)
+    text = request.json["text"]
+    translation = gpt3_request(f"Translate the following English text to Simplified Chinese:\n\n{text}\n")
+    return jsonify(translation=translation)
 
-
-def translate_text(summary_en):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=translate(summary_en),
-        temperature=0.5
-    )
-    return response
-
-
+'''
 def generate_summary(article_text):
     return """Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
     The output should be at roughly the same length as the summary templates provided. 
@@ -83,7 +72,7 @@ def translate(summary):
     return """Please translate into simplified Chinese""".format(
         summary
     )
-
+'''
 
 if __name__ == "__main__":
     app.run(debug=True)
