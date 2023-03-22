@@ -17,7 +17,7 @@ def gpt3_request(prompt, max_tokens=500):
     return response.choices[0].text.strip()
 
 def generate_prompt(text):
-    return """Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
+    return ("""Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
     The output should be at roughly the same length as the summary templates provided. 
     The output should contain similar types of information as the summary templates do. 
     The output should contain a title.
@@ -30,7 +30,7 @@ def generate_prompt(text):
     CAST AI has experienced quarter-by-quarter revenue growth of over 220%, based on the company’s ability to provide optimization solutions 
     that simplify cloud-native application management, a much-needed service in today’s tech-driven world. 
     Article: {}
-    Output:"""{text}"
+    Output:""" + text)
 
 
 @app.route("/")
