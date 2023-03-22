@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     const passcode = input.value;
-    if (passcode === "your_passcode_here") {
+    if (passcode === "gvf2023") {
       document.body.removeChild(overlay);
       document.body.removeChild(popup);
     } else {
@@ -87,3 +87,29 @@ document.getElementById("translate").addEventListener("click", async () => {
         alert('An error occurred while processing the translation. Please try again.');
     }
 });
+
+
+function copyToClipboard(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "absolute";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+}
+
+document.getElementById("copy-summary").addEventListener("click", () => {
+  const summaryText = document.getElementById("summary-output").value;
+  copyToClipboard(summaryText);
+  alert("Summary copied to clipboard.");
+});
+
+document.getElementById("copy-translation").addEventListener("click", () => {
+  const translationText = document.getElementById("translation-output").value;
+  copyToClipboard(translationText);
+  alert("Translation copied to clipboard.");
+});
+
