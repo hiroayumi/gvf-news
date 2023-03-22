@@ -68,11 +68,11 @@ h3 {
     align-items: center;
     gap: 10px;
     flex: 0.3;
-    width: 100px;
+    width: 50px;
 }
 
 textarea {
-    width: 100%;
+    width: 90%;
     height: 90%;
     padding: 10px;
     font-size: 1rem;
@@ -118,6 +118,11 @@ output textarea {
   padding: 20px;
   text-align: center;
   z-index: 1001;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
