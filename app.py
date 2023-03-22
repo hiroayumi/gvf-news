@@ -13,8 +13,8 @@ def index():
         article = request.form["article"]
         response = openai.Completion.create(
             model="text-davinci-003",
-            summary=generate_summary(article),
-            temperature=0.6,
+            prompt=generate_summary(article),
+            temperature=0.5
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -58,8 +58,7 @@ def generate_summary(article):
     + "and use cloud-native automation techniques for immediate cost reduction. Since the platform launch, CAST AI has experienced quarter-by-quarter "
     + "revenue growth of over 220%, based on the company’s ability to provide optimization solutions that simplify cloud-native application "
     + "management, a much-needed service in today’s tech-driven world. Article to summarize:\n{article}\n"
-    summary = chat_gpt_request(prompt)
-    return summary
+    return prompt
 
 if __name__ == "__main__":
     app.run(debug=True)
