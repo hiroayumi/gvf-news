@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GVF News Generator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
-  <form action="/" method="post">
-    <input type="text" name="article" placeholder="Paste your news article here" required />
-    <input type="submit" value="Generate summary" />
-  </form>
-  {% if result %}
-  <div class="result">{{ result }}</div>
-  {% endif %}
+  <h3>GVF News Generator</h3>
+  <div class="container">
+    <div class="input-section">
+    <form action="/" method="post">
+      <textarea type="text" id="article" placeholder="Paste your news article here"/ required></textarea>
+    </form>
+    <div class="button-section">
+      <button id="submit-button">Submit</button>
+      <button id="translate-button">Translate</button>
+    </div>
+    <div class="output-section">
+      <div class="summary-section">
+        <h2>Summarized English:</h2>
+        <textarea id="summary-output" readonly></textarea>
+      </div>
+      <div class="translation-section">
+        <h2>Translated Chinese:</h2>
+        <textarea id="translation-output" readonly></textarea>
+      </div>
+    </div>
 </body>
+</html>
