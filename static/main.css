@@ -63,7 +63,7 @@ body {
     width: 100%;
 }
 textarea {
-    width: 90%;
+    width: 95%;
     height: 90%;
     padding: 10px;
     font-size: 1rem;
@@ -79,7 +79,7 @@ button {
     border: 1px solid #ccc;
     background-color: #f8f8f8;
     transition: background-color 0.3s;
-    width: 100%;
+    width: 90%;
     font-family: "ColfaxAI";
 }
 button:hover {
@@ -103,14 +103,15 @@ output textarea {
 .popup {
   background-color: white;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
+  width: 200px;
   z-index: 1001;
 }
 .copy-btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .input textarea {
