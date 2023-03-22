@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 .container {
     display: flex;
@@ -60,7 +60,7 @@ body {
     align-items: center;
     gap: 10px;
     flex: 0.3;
-    width: 35px;
+    width: 100px;
 }
 textarea {
     width: 90%;
@@ -69,6 +69,7 @@ textarea {
     font-size: 1rem;
     border: 1px solid #ccc;
     resize: none;
+    font-family: "ColfaxAI";
     overflow: auto;
 }
 button {
@@ -78,7 +79,7 @@ button {
     border: 1px solid #ccc;
     background-color: #f8f8f8;
     transition: background-color 0.3s;
-    width: 35px;
+    width: 100%;
     font-family: "ColfaxAI";
 }
 button:hover {
@@ -113,8 +114,8 @@ output textarea {
 }
 
 .input textarea {
-    flex-grow: 1; /* Add this line */
-    margin-bottom: 10px; /* Add this line */
+    flex-grow: 1;
+    margin-bottom: 10px;
 }
 
 .popup h1, .popup p {
