@@ -32,9 +32,11 @@ def generate_prompt(text):
     Article: {}
     Output:"""{text}"
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/api/summarize", methods=["POST"])
 def summarize():
@@ -42,11 +44,15 @@ def summarize():
     summary = gpt3_request(generate_prompt(text))
     return jsonify(summary=summary)
 
+
 @app.route("/api/translate", methods=["POST"])
 def translate():
     text = request.json["text"]
     translation = gpt3_request(f"Translate the following English text to Simplified Chinese:\n\n{text}\n")
     return jsonify(translation=translation)
 
+
 if __name__ == "__main__":
     app.run(debug=True)
+    
+ 
