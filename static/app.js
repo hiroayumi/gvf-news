@@ -23,7 +23,7 @@ document.getElementById("summarize").addEventListener("click", async () => {
 });
 
 document.getElementById("translate").addEventListener("click", async () => {
-    const inputText = document.getElementById("output-summary").value;
+    const inputText = document.getElementById("summary-output").value; // Changed this line
     if (!inputText) return;
 
     try {
