@@ -1,32 +1,34 @@
-function submitArticle() {
-    const articleInput = document.getElementById('article-input').value;
-    fetch('/summarize', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ article: articleInput })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('summary-output').value = data.summary;
-    });
-}
+// static/scripts.js
+document.getElementById("summarize").addEventListener("click", async () => {
+    const inputText = document.getElementById("input-text").value;
+    if (!inputText) return;
 
-function translateSummary() {
-    const summaryText = document.getElementById('summary-output').value;
-    fetch('/translate', {
-        method: 'POST',
+    const response = await fetch("/api/summarize", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: summaryText, target_language: 'Chinese' })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('translation-output').value = data.translated_text;
+        body: JSON.stringify({ text: inputText }),
     });
-}
 
-document.getElementById('submit-button').addEventListener('click', submitArticle);
-document.getElementById('translate-button').addEventListener('click', translateSummary);
+    const { summary } = await response.json();
+    document.getElementById("output-summary").value = summary;
+});
+
+document.getElementById("translate").addEventListener("click", async () => {
+    const inputText = document.getElementById("output-summary").value;
+    if (!inputText) return;
+
+    const response = await
+    fetch("/api/translate", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: inputText }),
+    });
+
+    const { translation } = await response.json();
+    document.getElementById("output-translation").value = translation;
+});
+
