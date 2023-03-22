@@ -14,14 +14,47 @@ function setGeneratingMessage(elementId) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const passcode = "gvf2023";
-    const userInput = prompt("Please enter the passcode:");
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  document.body.appendChild(overlay);
 
-    if (userInput !== passcode) {
-        alert("Incorrect passcode. You won't be able to use the functions.");
-        // Optionally, redirect the user to another page
-        window.location.href = "https://gvfnews.azurewebsites.net/";
+  const popup = document.createElement("div");
+  popup.classList.add("popup");
+  popup.style.position = "fixed";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.width = "300px";
+  popup.style.height = "200px";
+  document.body.appendChild(popup);
+
+  const form = document.createElement("form");
+  popup.appendChild(form);
+
+  const label = document.createElement("label");
+  label.textContent = "Enter Passcode: ";
+  form.appendChild(label);
+
+  const input = document.createElement("input");
+  input.type = "password";
+  form.appendChild(input);
+
+  const submitButton = document.createElement("button");
+  submitButton.textContent = "Submit";
+  form.appendChild(submitButton);
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const passcode = input.value;
+    if (passcode === "your_passcode_here") {
+      document.body.removeChild(overlay);
+      document.body.removeChild(popup);
+    } else {
+      alert("Invalid passcode. Please try again.");
+      window.location.href = "https://gvfnews.azurewebsites.net/";
     }
+  });
 });
 
 
