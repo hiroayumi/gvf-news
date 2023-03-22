@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 openai.api_key = "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"
 
+'''
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -20,9 +21,46 @@ def index():
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
+'''
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
-def generate_summary(article):
+@app.route('/summarize', methods=['POST'])
+def summarize():
+    article_text = request.json['article']
+    summary = summarize_article(article_text)
+    return jsonify(summary=summary)
+
+def summarize_article(article_text):
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=generate_summary(article_text),
+        temperature=0.5
+    )
+    return response
+
+
+@app.route('/translate', methods=['POST'])
+def translate():
+    # Implement your translate_text() function here
+    text = request.json['text']
+    translated_text = translate_text(summary_en)
+    return jsonify(translated_text=translated_text)
+
+
+def translate_text(summary_en):
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=translate(summary_en),
+        temperature=0.5
+    )
+    return response
+
+
+def generate_summary(article_text):
     return """Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
     The output should be at roughly the same length as the summary templates provided. 
     The output should contain similar types of information as the summary templates do. 
@@ -37,7 +75,13 @@ def generate_summary(article):
     that simplify cloud-native application management, a much-needed service in today’s tech-driven world. 
     Article: {}
     Output:""".format(
-        article
+        article_text
+    )
+
+
+def translate(summary):
+    return """Please translate into simplified Chinese""".format(
+        summary
     )
 
 
