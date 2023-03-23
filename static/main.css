@@ -112,7 +112,6 @@ output textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
 }
 
 
@@ -127,8 +126,7 @@ output textarea {
     margin-bottom: 10px;
 }
 
-.popup h1, .popup p {
-    margin: 0;
+.popup h1, .popup p, .popup input {
+    margin-bottom: 10px;
     padding: 0;
 }
-
