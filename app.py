@@ -24,11 +24,11 @@ def gpt3_summarize(text):
                                                 CAST AI has experienced quarter-by-quarter revenue growth of over 220%, based on the company’s ability to provide optimization solutions 
                                                 that simplify cloud-native application management, a much-needed service in today’s tech-driven world. 
                                                 The template ends here. Please follow the template and summarize the following article"""},
-                 {"role": "user", "content": f"The article is {text}"}, 
+                 {"role": "user", "content": 'The article is "{text}"'} 
                  ],
         temperature=0.5,
     )
-    return completion.choices[0].message.content
+    return completion['choices'][0]['message']['content']
 
 
 def gpt3_translate(text):
@@ -36,11 +36,11 @@ def gpt3_translate(text):
         model="gpt-3.5-turbo",
         messages=[
                  {"role": "system", "content": "You are a professional translator"},
-                 {"role": "user", "content": f"Please translate the following English text to Simplified Chinese: {text}"}, 
+                 {"role": "user", "content": 'Translate the following English text to Simplified Chinese: "{text}"'}
                  ],
         temperature=0.5,
     )
-    return completion.choices[0].message.content
+    return response['choices'][0]['message']['content']
 
 '''
 def gpt3_request(prompt, max_tokens=500):
