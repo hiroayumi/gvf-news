@@ -37,7 +37,6 @@ def gpt3_summarize(text):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
         messages=[
-            {"role": "system", "content": "You are a helpful summarizer"},
             {"role": "user", "content": f"Please summarize the following article: {text}"},
         ],
     )
