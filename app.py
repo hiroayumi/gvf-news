@@ -9,7 +9,7 @@ openai.api_key = "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"
 
 def gpt3_summarize(text):
     completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-0301",
         messages=[
             {"role": "system", "content": "You are a helpful summarizer"},
             {"role": "user", "content": "Please learn the writing style of the following template summary, "
