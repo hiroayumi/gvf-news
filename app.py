@@ -8,9 +8,9 @@ app = Flask(__name__)
 openai.api_key = "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"
 
 def gpt3_request(prompt, max_tokens=500):
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         engine="gpt-3.5-turbo",
-        prompt=prompt,
+        messages=prompt,
         max_tokens=max_tokens,
         temperature=0.5,
     )
