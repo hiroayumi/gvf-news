@@ -11,7 +11,8 @@ def gpt3_summarize(text):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": """Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
+        {"role": "system", "content": "You are a professional news summarizer."},
+        {"role": "user", "content": """Please learn the writing styles of the following template summary, and summarize a news article in a similar way.
         The output should be at roughly the same length as the summary templates provided. 
         The output should contain similar types of information as the summary templates do. 
         The output should contain both the title as a separate line and the news body
