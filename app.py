@@ -26,8 +26,9 @@ def gpt3_summarize(text):
         The template ends here."""},
         {"role": "user", "content": f"Please follow the template and summarize the following article: {text}"},
         ],
+        temperature=0.5,
     )
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message
 
 def gpt3_translate(text):
     response = openai.ChatCompletion.create(
@@ -36,8 +37,9 @@ def gpt3_translate(text):
         {"role": "system", "content": "You are a professional translator."},
         {"role": "user", "content": f"Please translate the following summary of a news article into Simplified Chinese: {text}"},
         ],
+        temperature=0.5,
     )
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message
 
 '''
 def gpt3_request(prompt, max_tokens=500):
