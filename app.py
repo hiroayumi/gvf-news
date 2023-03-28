@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 openai.api_key = "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"
 
+'''
 def gpt3_summarize(text):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-0301",
@@ -30,6 +31,17 @@ def gpt3_summarize(text):
         ],
     )
     return completion.choices[0].message.content
+'''
+
+def gpt3_summarize(text):
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-0301",
+        messages=[
+            {"role": "system", "content": "You are a helpful summarizer"},
+            {"role": "user", "content": f"Please summarize the following article: {text}"},
+        ],
+    )
+    return completion.choices[0].message.content.strip()
 
 
 def gpt3_translate(text):
