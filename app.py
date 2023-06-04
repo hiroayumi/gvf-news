@@ -3,19 +3,15 @@ import openai
 from flask import Flask, jsonify, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-### openai.api_key = os.getenv("OPENAI_API_KEY")
-
-openai.api_key = "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"
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def gpt3_request(prompt, max_tokens=500):
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=max_tokens,
-        temperature=0.5,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+        temperature=0.3,
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message
 
 
 def generate_prompt(text):
