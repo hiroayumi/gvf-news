@@ -11,7 +11,7 @@ def gpt3_request(prompt, max_tokens=500):
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
     )
-    return response.choices[0].message
+    return response.choices[0].message.contents
 
 
 def generate_prompt(text):
